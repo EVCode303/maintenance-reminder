@@ -1,0 +1,9 @@
+@import "./components/start";
+@import "./components/left-menu";
+
+.maintenance {
+    grid-column: 3/8;
+    width: 100%;
+
+    @import "./components/maintenance__header";
+}

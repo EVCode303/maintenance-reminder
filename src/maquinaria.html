@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenance Reminder</title>
+    <link rel="stylesheet" href="css/maquinaria.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+</head>
+
+<body>
+    <a href="#" class="overlay-dismiss" id="dismiss"></a>
+    <div class="container">
+        <aside class="left-menu">
+            <nav class="left-menu__menu">
+                <a href="index.html" class="left-menu__item">Plan de mantenimiento</a>
+                <a href="maquinaria.html" class="left-menu__item left-menu__item--active">Maquinaria</a>
+                <a href="historial.html" class="left-menu__item">Historial</a>
+            </nav>
+        </aside>
+        <main class="maintenance">
+            <header class="maintenance__header">
+                <div class="maintenance__left">
+                    <a href="#" class="maintenance__gIcon"></a>
+                    <span class="maintenance__welcome">Gestor de Mantenimientos</span>
+                </div>
+                <button type="button" class="maintenance__notifications">
+                    <i class="far fa-bell maintenance__bell"></i>
+                </button>
+            </header>
+            <section class="maintenance__main">
+                <h1 class="maintenance__title">Maquinaria<span class="maintenance__many" id="mchNumber"> (3)</span></h1>
+
+                <div class="maintenance__search-container">
+                    <div class="maintenance__search">
+                        <i class="fas fa-search maintenance__loupe"></i>
+                        <input type="search" placeholder="Buscar máquina..." class="maintenance__search-input"
+                            id="search">
+                    </div>
+                </div>
+
+                <table class="maintenance__table">
+                    <thead class="maintenance__head">
+                        <tr class="maintenance__row">
+                            <th class="maintenance__bold-column">Código</th>
+                            <th class="maintenance__bold-column">Máquina</th>
+                            <th class="maintenance__bold-column">Descripción</th>
+                            <th class="maintenance__bold-column">Fecha Ingresada</th>
+                        </tr>
+                    </thead>
+                    <tbody class="maintenance__body">
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">0001</td>
+                            <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
+                            <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
+                            <td class="maintenance__column">18/11/2020</td>
+                        </tr>
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">0001</td>
+                            <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
+                            <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
+                            <td class="maintenance__column">18/11/2020</td>
+                        </tr>
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">0001</td>
+                            <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
+                            <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
+                            <td class="maintenance__column">18/11/2020</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <button class="maintenance__float" id="btnFloat">+</button>
+        </main>
+    </div>
+    <div class="overlay" id="overlay">
+        <form class="overlay__form" action="#">
+            <div class="overlay__both">
+                <div class="overlay__mantenimient">
+                    <label for="mantenimiento">Código</label>
+                    <input type="text" class="overlay__mantenimiento" id="codigo">
+                </div>
+                <div class="overlay__frecuenci">
+                    <label for="overlay__frecuencia">Maquinaria</label>
+                    <input type="text" class="overlay__mantenimiento" id="maquina">
+                </div>
+            </div>
+            <div class="overlay__actividade">
+                <label for="overlay__actividades">Descripción</label>
+                <textarea class="overlay__actividades"></textarea>
+            </div>
+            <div class="overlay__submit-container">
+                <button type="button" id="submit" class="overlay__submit">
+                    Programar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/renderer/maquinaria.js"></script>
+
+</body>
+
+</html>

@@ -10,13 +10,14 @@
 </head>
 
 <body>
+    <a href="#" class="overlay-dismiss" id="dismiss"></a>
     <div class="container">
         <aside class="left-menu">
             <nav class="left-menu__menu">
                 <a href="index.html" class="left-menu__item left-menu__item--active">Plan de
                     mantenimiento</a>
-                <a href="index.html" class="left-menu__item">Maquinaria</a>
-                <a href="index.html" class="left-menu__item">Historial</a>
+                <a href="maquinaria.html" class="left-menu__item">Maquinaria</a>
+                <a href="historial.html" class="left-menu__item">Historial</a>
             </nav>
         </aside>
         <main class="maintenance">
@@ -46,7 +47,7 @@
                         <tr class="maintenance__row">
                             <th class="maintenance__bold-column">Mantenimiento</th>
                             <th class="maintenance__bold-column">Intervalo</th>
-                            <th class="maintenance__bold-column">Priodidad</th>
+                            <th class="maintenance__bold-column">Prioridad</th>
                             <th class="maintenance__bold-column">Estado</th>
                             <th class="maintenance__bold-column">Fecha</th>
                         </tr>
@@ -76,9 +77,52 @@
                     </tbody>
                 </table>
             </section>
-            <button class="maintenance__float">+</button>
+            <button class="maintenance__float" id="btnFloat">+</button>
         </main>
     </div>
+    <div class="overlay" id="overlay">
+        <form class="overlay__form" action="#">
+            <div class="overlay__both">
+                <div class="overlay__mantenimient">
+                    <label for="mantenimiento">Mantenimiento</label>
+                    <input type="text" class="overlay__mantenimiento" id="mantenimiento">
+                </div>
+                <div class="overlay__frecuenci">
+                    <label for="overlay__frecuencia">Frecuencia</label>
+                    <select class="overlay__frecuencia">
+                        <option>Seleccionar</option>
+                        <option>Semanal</option>
+                        <option>Mensual</option>
+                        <option>Bimensual</option>
+                        <option>Trimestral</option>
+                        <option>Cuatrimestral</option>
+                        <option>Semestral</option>
+                        <option>Anual</option>
+                    </select>
+                </div>
+            </div>
+            <div class="overlay__actividade">
+                <label for="overlay__actividades">Actividades</label>
+                <textarea class="overlay__actividades"></textarea>
+            </div>
+            <div class="overlay__equip">
+                <label for="overlay__equipo">Equipo</label>
+                <select class="overlay__equipo">
+                    <option>Seleccionar</option>
+                    <option>Computadora</option>
+                    <option>Televisor</option>
+                    <option>Grua</option>
+                </select>
+            </div>
+            <div class="overlay__submit-container">
+                <button type="button" id="submit" class="overlay__submit">
+                    Programar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/renderer/index.js"></script>
 </body>
 
 </html>

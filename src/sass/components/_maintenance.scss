@@ -48,6 +48,7 @@
         background-color: transparent;
         width: 100%;
         @extend .maintenance__search;
+        @include font(Hind, 16px, #000, regular);
     }
 
     &__search-input::placeholder{
@@ -125,7 +126,7 @@
         bottom: 4%;
         right: 2%;
         transition: all 0.3s;
-        
+
         &:hover {
             transform: scale(1.1);
         }

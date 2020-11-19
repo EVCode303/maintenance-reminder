@@ -1,0 +1,108 @@
+.overlay-dismiss {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(#000, 0.5);
+    z-index: 1;
+}
+
+.overlay {
+    display: none;
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    z-index: 2;
+    background-color: #fff;
+    padding: 0 2em;
+
+    &__both {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-content: center;
+        min-height: 50px;
+    }
+
+    & label {
+        @include font(Hind, 20px, #000, regular);
+        display: block;
+    }
+
+    &__mantenimient {
+        margin: 1em 0;
+        grid-column: 1/3;
+        width: 90%;
+    }
+
+    &__frecuenci {
+        grid-column: 3/4;
+        margin: 1em 0;
+    }
+
+    &__mantenimiento {
+        display: inline-block;
+        width: 100%;
+        height: 35px;
+        @include font(Hind, 16px, #000, regular);
+        outline: none;
+        border: none;
+        box-shadow: inset 0px 0px 1px 1px #ccc;
+        border-radius: 5px;
+    }
+
+    &__frecuencia {
+        width: 100%;
+        height: 35px;
+        box-shadow: inset 0px 0px 1px 1px #ccc;
+        border: none;
+    }
+
+    &__equip {
+        margin-top: 1em;
+    }
+
+    &__actividades {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100px;
+        height: 100px;
+        max-height: 100px;
+        @include font(Hind, 16px, #000, regular);
+        padding: 0.5em;
+        outline: none;
+        box-shadow: inset 0px 0px 1px 1px #ccc;
+        border: none;
+        border-radius: 5px;
+    }
+
+    &__equipo {
+        width: 35%;
+        box-shadow: inset 0px 0px 1px 1px #ccc;
+        border: none;
+        height: 35px;
+    }
+
+    &__submit-container {
+        width: 100%;
+        text-align: right;
+        margin-top: 1.5em;
+    }
+
+    &__submit {
+        padding: 0.5em 1em;
+        background-color: colors(accent);
+        @include font(Hind, 16px, #fff, regular);
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #d1474c;
+        }
+    }
+}
