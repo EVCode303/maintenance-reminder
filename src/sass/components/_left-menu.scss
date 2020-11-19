@@ -1,0 +1,50 @@
+.left-menu {
+    background-color: colors(primary);
+    grid-column: 1/3;
+    width: 100%;
+    height: 100vh;
+
+    &__menu {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    &__item {
+        @include font(Hind, 16px, #fff, regular);
+        text-decoration: none;
+        text-align: left;
+        width: 85%;
+        margin: 0 auto;
+        padding: 0.5em 0;
+        padding-left: 4.5em;
+        position: relative;
+        transition: all 0.3s;
+
+        &--active::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background-color: colors(accent);
+            border-radius: 30%;
+            top: 5%;
+            left: 10%;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: colors(accent);
+            border-radius: 30px;
+            animation: glowing 2s ease-in-out infinite alternate;
+
+            @keyframes glowing {
+                from { transform: scale(1); }
+                to { transform: scale(1.1); }
+            }
+        }
+    }
+}

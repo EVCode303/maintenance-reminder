@@ -1,0 +1,36 @@
+$colors: (
+    primary: #16163D,
+    secondary: #f6f6f6,
+    accent: #DC5257,
+    accent-2: #90EE90,
+    accent-3: #d62a30
+);
+
+@function colors($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+@mixin font($font-name, $font-size: 16, $color: #000, $font-weight: regular) {
+    font-family: $font-name;
+    font-size: $font-size;
+    color: $color;
+    font-weight: $font-weight;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template: {
+        rows: auto;
+        columns: repeat(7, 1fr);
+    }
+    width: 100%;
+    background-color: #fff;
+}

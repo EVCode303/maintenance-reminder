@@ -9,7 +9,7 @@ var app = electron_1.default.app, BrowserWindow = electron_1.default.BrowserWind
 var mainWindow, mainWindowPosition;
 var createWindow = function () {
     mainWindowPosition = electron_window_state_1.default({
-        defaultWidth: 900,
+        defaultWidth: 1150,
         defaultHeight: 750
     });
     mainWindow = new BrowserWindow({
@@ -17,6 +17,10 @@ var createWindow = function () {
         height: mainWindowPosition.height,
         x: mainWindowPosition.x,
         y: mainWindowPosition.y,
+        minWidth: 800,
+        minHeight: 600,
+        maxWidth: 1250,
+        maxHeight: 900,
         show: false,
         webPreferences: {
             nodeIntegration: true

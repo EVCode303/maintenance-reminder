@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mantenance Reminder</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
 </head>
+
 <body>
-    <h1>Hola Mundo</h1>
+    <div class="container">
+        <aside class="left-menu">
+            <nav class="left-menu__menu">
+                <a href="index.html" class="left-menu__item left-menu__item--active">Plan de
+                    mantenimiento</a>
+                <a href="index.html" class="left-menu__item">Maquinaria</a>
+                <a href="index.html" class="left-menu__item">Historial</a>
+            </nav>
+        </aside>
+        <main class="maintenance">
+            <header class="maintenance__header">
+                <div class="maintenance__left">
+                    <a href="#" class="maintenance__gIcon"></a>
+                    <span class="maintenance__welcome">Gestor de Mantenimientos</span>
+                </div>
+                <button type="button" class="maintenance__notifications">
+                    <i class="far fa-bell maintenance__bell"></i>
+                </button>
+            </header>
+            <section class="maintenance__main">
+                <h1 class="maintenance__title">Plan de mantenimiento <span class="maintenance__many"
+                        id="mtnNumber">(3)</span></h1>
+
+                <div class="maintenance__search-container">
+                    <div class="maintenance__search">
+                        <i class="fas fa-search maintenance__loupe"></i>
+                        <input type="search" placeholder="Buscar por mantenimiento..." class="maintenance__search-input"
+                            id="search">
+                    </div>
+                </div>
+
+                <table class="maintenance__table">
+                    <thead class="maintenance__head">
+                        <tr class="maintenance__row">
+                            <th class="maintenance__bold-column">Mantenimiento</th>
+                            <th class="maintenance__bold-column">Intervalo</th>
+                            <th class="maintenance__bold-column">Priodidad</th>
+                            <th class="maintenance__bold-column">Estado</th>
+                            <th class="maintenance__bold-column">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody class="maintenance__body">
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                            <td class="maintenance__column">Semanal</td>
+                            <td class="maintenance__column">Normal<span class="maintenance__priority maintenance__priority--normal"></span></td>
+                            <td class="maintenance__column">Activo</td>
+                            <td class="maintenance__column">18/11/2020</td>
+                        </tr>
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">Mantenimiento correctivo impresoras</td>
+                            <td class="maintenance__column">Mensual</td>
+                            <td class="maintenance__column">Alta<span class="maintenance__priority maintenance__priority--high"></span></td>
+                            <td class="maintenance__column">Activo</td>
+                            <td class="maintenance__column">20/11/2020</td>
+                        </tr>
+                        <tr class="maintenance__row">
+                            <td class="maintenance__column">Cambio de pasta térmica en computadoras</td>
+                            <td class="maintenance__column">Semestral</td>
+                            <td class="maintenance__column">Baja<span class="maintenance__priority maintenance__priority--low"></span></td>
+                            <td class="maintenance__column">Activo</td>
+                            <td class="maintenance__column">15/05/2021</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <button class="maintenance__float">+</button>
+        </main>
+    </div>
 </body>
+
 </html>

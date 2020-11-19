@@ -1,0 +1,52 @@
+&__header {
+    flex: 1 1 100%;
+    min-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1em;
+    border-bottom: 1px solid #cecece;
+}
+
+&__gIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: colors(accent-2);
+}
+
+&__left {
+    position: relative;;
+}
+
+&__welcome {
+    display: inline-block;
+    @include font(Montserrat, 18px, #000, regular);
+    margin-left: 0.5em;
+    position: absolute;
+    top: 0%;
+}
+
+&__notifications {
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: #222222;
+    transition: all 0.3s;;
+}
+
+&__notifications:hover {
+    animation: shake 0.3s ease-in-out;
+
+    @keyframes shake {
+        0% { transform: translateX(0%) }
+        40% { transform: translateX(10%); }
+        80% { transform: translateX(-10%); }
+        100% { transform: translateX(0%); }
+    }
+}

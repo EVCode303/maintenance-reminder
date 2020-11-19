@@ -1,0 +1,133 @@
+.maintenance {
+    grid-column: 3/8;
+    width: 100%;
+
+    @import './maintenance__header';
+
+    &__main {
+        flex: 1 1 100%;
+        padding: 0 1em;
+    }
+
+    &__title {
+        @include font(Montserrat, 20px, #000);
+        margin: 1.5em 0;
+    }
+
+    &__search-container {
+        width: 100%;
+        min-height: 5em;
+        background-color: colors(secondary);
+        margin: 0 auto;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__search {
+        width: 35%;
+        height: 40px;
+        margin-left: 1em;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        background-color: rgb(226, 226, 226);
+    }
+
+    &__loupe {
+        flex: 0.17%;
+        padding-left: 1em;
+    }
+
+    &__search-input {
+        flex: 83%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        width: 100%;
+        @extend .maintenance__search;
+    }
+
+    &__search-input::placeholder{
+        @include font(Hind, 16px, rgba(#000, 0.6), regular);
+    }
+
+    &__table {
+        padding: 0 1em;
+        width: 100%;
+        margin-top: 2em;
+        border-collapse: collapse;
+        @include font(Hind, 16px, #000, regular);
+    }
+
+    &__bold-column {
+        background-color: colors(accent-2);
+        @include font(Montserrat, 16px, #000, regular);
+        text-align: center;
+        height: 35px;
+    }
+
+    &__row,
+    &__column {
+        padding: 12px 1.5em;
+        text-align: center;
+        position: relative;
+        user-select: none;
+    }
+
+    &__body &__row:hover {
+        background-color: #ececec;
+    }
+
+    &__body &__row:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    &__body &__row:nth-of-type(even):hover {
+        background-color: #ececec;
+    }
+
+    &__priority {
+        display: block;
+        width: 15px;
+        height: 15px;
+        margin: 0 auto;
+        position: relative;
+        border-radius: 50%;
+        left: 5%;
+
+        &--high {
+            background-color: colors(accent-3);
+        }
+
+        &--normal {
+            background-color: colors(accent-2);
+        }
+
+        &--low {
+            background-color: colors(primary);
+        }
+    }
+
+    &__float {
+        @include font(Hind, 50px, #fff, regular);
+        line-height: 60px;
+        background-color: colors(accent);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        bottom: 4%;
+        right: 2%;
+        transition: all 0.3s;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

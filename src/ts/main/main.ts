@@ -1,12 +1,11 @@
 import electron from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import path from 'path';
 const {app, BrowserWindow} = electron;
 let mainWindow, mainWindowPosition;
 
 const createWindow = ():any => {
     mainWindowPosition = windowStateKeeper({
-        defaultWidth: 900,
+        defaultWidth: 1150,
         defaultHeight: 750
     });
 
@@ -15,6 +14,10 @@ const createWindow = ():any => {
         height: mainWindowPosition.height,
         x: mainWindowPosition.x,
         y: mainWindowPosition.y,
+        minWidth: 800,
+        minHeight: 600,
+        maxWidth: 1250,
+        maxHeight: 900,
         show: false,
         webPreferences: {
             nodeIntegration: true
