@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 from classes import product
 
 conn = sqlite3.connect('database\maintenance-database.db')
@@ -21,7 +22,7 @@ def insert(prod):
 def getall():
     with conn:
         c.execute("SELECT * FROM Equipo")
-        return c.fetchall()
+        return print(c.fetchall())
 
 
 def update_equipo(prod, descripcion):
@@ -46,5 +47,7 @@ def remove_prd(prod):
                   {'codigo': prod.codigo, 'nombre': prod.nombre})
 
 
+getall()
+sys.stdout.flush()
 conn.commit()
 conn.close()
