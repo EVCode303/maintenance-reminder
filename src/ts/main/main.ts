@@ -1,5 +1,6 @@
 import electron from 'electron';
 import windowStateKeeper from 'electron-window-state';
+import { Database } from './database';
 const {app, BrowserWindow} = electron;
 let mainWindow, mainWindowPosition;
 
@@ -26,6 +27,7 @@ const createWindow = ():any => {
 
     mainWindowPosition.manage(mainWindow);
     mainWindow.loadFile('src/index.html');
+    mainWindow.setMenu(null);
     mainWindow.once('ready-to-show', mainWindow.show);
 };
 

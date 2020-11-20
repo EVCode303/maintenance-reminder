@@ -57,10 +57,16 @@
         height: 35px;
         box-shadow: inset 0px 0px 1px 1px #ccc;
         border: none;
+        @include font(Hind, 16px, #000, regular);
     }
 
-    &__equip {
+    &__equip,
+    &__priori {
         margin-top: 1em;
+    }
+
+    &__priori {
+        margin-left: 3em;
     }
 
     &__actividades {
@@ -79,16 +85,20 @@
     }
 
     &__equipo {
-        width: 35%;
+        width: 50%;
         box-shadow: inset 0px 0px 1px 1px #ccc;
         border: none;
         height: 35px;
     }
 
+    &__prioridad {
+        @extend .overlay__equipo;
+    }
+
     &__submit-container {
         width: 100%;
         text-align: right;
-        margin-top: 1.5em;
+        margin-top: 1em;
     }
 
     &__submit {

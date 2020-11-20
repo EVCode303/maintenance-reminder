@@ -28,6 +28,7 @@ var createWindow = function () {
     });
     mainWindowPosition.manage(mainWindow);
     mainWindow.loadFile('src/index.html');
+    mainWindow.setMenu(null);
     mainWindow.once('ready-to-show', mainWindow.show);
 };
 app.once('ready', createWindow);

@@ -55,10 +55,15 @@
         @include font(Hind, 16px, rgba(#000, 0.6), regular);
     }
 
+    &__table-container {
+        height: 350px;
+        overflow: auto;
+        margin-top: 2em;
+    }
+
     &__table {
         padding: 0 1em;
         width: 100%;
-        margin-top: 2em;
         border-collapse: collapse;
         @include font(Hind, 16px, #000, regular);
     }
@@ -76,6 +81,12 @@
         text-align: center;
         position: relative;
         user-select: none;
+        line-height: 1.1;
+    }
+
+    &__body {
+        height: 350px;
+        overflow: scroll;
     }
 
     &__body &__row:hover {

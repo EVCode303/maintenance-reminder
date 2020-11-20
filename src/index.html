@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenance Reminder</title>
+    <title>Mantenimientos</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
 </head>
@@ -42,40 +42,74 @@
                     </div>
                 </div>
 
-                <table class="maintenance__table">
-                    <thead class="maintenance__head">
-                        <tr class="maintenance__row">
-                            <th class="maintenance__bold-column">Mantenimiento</th>
-                            <th class="maintenance__bold-column">Intervalo</th>
-                            <th class="maintenance__bold-column">Prioridad</th>
-                            <th class="maintenance__bold-column">Estado</th>
-                            <th class="maintenance__bold-column">Fecha</th>
-                        </tr>
-                    </thead>
-                    <tbody class="maintenance__body">
-                        <tr class="maintenance__row">
-                            <td class="maintenance__column">Mantenimiento preventivo computadora</td>
-                            <td class="maintenance__column">Semanal</td>
-                            <td class="maintenance__column">Normal<span class="maintenance__priority maintenance__priority--normal"></span></td>
-                            <td class="maintenance__column">Activo</td>
-                            <td class="maintenance__column">18/11/2020</td>
-                        </tr>
-                        <tr class="maintenance__row">
-                            <td class="maintenance__column">Mantenimiento correctivo impresoras</td>
-                            <td class="maintenance__column">Mensual</td>
-                            <td class="maintenance__column">Alta<span class="maintenance__priority maintenance__priority--high"></span></td>
-                            <td class="maintenance__column">Activo</td>
-                            <td class="maintenance__column">20/11/2020</td>
-                        </tr>
-                        <tr class="maintenance__row">
-                            <td class="maintenance__column">Cambio de pasta térmica en computadoras</td>
-                            <td class="maintenance__column">Semestral</td>
-                            <td class="maintenance__column">Baja<span class="maintenance__priority maintenance__priority--low"></span></td>
-                            <td class="maintenance__column">Activo</td>
-                            <td class="maintenance__column">15/05/2021</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="maintenance__table-container">
+                    <table class="maintenance__table">
+                        <thead class="maintenance__head">
+                            <tr class="maintenance__row">
+                                <th class="maintenance__bold-column">Mantenimiento</th>
+                                <th class="maintenance__bold-column">Máquina</th>
+                                <th class="maintenance__bold-column">Actividades</th>
+                                <th class="maintenance__bold-column">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody class="maintenance__body">
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                            <tr class="maintenance__row">
+                                <td class="maintenance__column">Mantenimiento preventivo computadora</td>
+                                <td class="maintenance__column">Computadora</td>
+                                <td class="maintenance__column">Cambio de pasta termica en el procesador debido a calentamiento</td>
+                                <td class="maintenance__column">18/11/2020</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
             <button class="maintenance__float" id="btnFloat">+</button>
         </main>
@@ -88,17 +122,8 @@
                     <input type="text" class="overlay__mantenimiento" id="mantenimiento">
                 </div>
                 <div class="overlay__frecuenci">
-                    <label for="overlay__frecuencia">Frecuencia</label>
-                    <select class="overlay__frecuencia">
-                        <option>Seleccionar</option>
-                        <option>Semanal</option>
-                        <option>Mensual</option>
-                        <option>Bimensual</option>
-                        <option>Trimestral</option>
-                        <option>Cuatrimestral</option>
-                        <option>Semestral</option>
-                        <option>Anual</option>
-                    </select>
+                    <label for="overlay__frecuencia">Fecha</label>
+                    <input type="date" name="" class="overlay__frecuencia" id="">
                 </div>
             </div>
             <div class="overlay__actividade">
