@@ -29,14 +29,9 @@
                 </button>
             </header>
             <section class="maintenance__main">
-                <h1 class="maintenance__title">Historial<span class="maintenance__many" id="mchNumber"> (3)</span></h1>
+                <h1 class="maintenance__title">Historial<span class="maintenance__many" id="hNumber"> (3)</span></h1>
 
                 <div class="maintenance__search-container">
-                    <div class="maintenance__search">
-                        <i class="fas fa-search maintenance__loupe"></i>
-                        <input type="search" placeholder="Buscar por fecha..." class="maintenance__search-input"
-                            id="search">
-                    </div>
                 </div>
                 <div class="maintenance__table-container">
                     <table class="maintenance__table">
@@ -48,7 +43,7 @@
                                 <th class="maintenance__bold-column">Fecha</th>
                             </tr>
                         </thead>
-                        <tbody class="maintenance__body">
+                        <tbody class="maintenance__body" id="tableBody">
                             <tr class="maintenance__row">
                                 <td class="maintenance__column">Mantenimiento preventivo computadora</td>
                                 <td class="maintenance__column">Computadora</td>
@@ -108,6 +103,11 @@
                 </div>
             </section>
         </main>
+
+        <script>
+            require('./js/renderer/historial.js');
+        </script>
+
     </div>
 </body>
 

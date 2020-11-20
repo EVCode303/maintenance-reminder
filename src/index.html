@@ -32,7 +32,7 @@
             </header>
             <section class="maintenance__main">
                 <h1 class="maintenance__title">Plan de mantenimiento <span class="maintenance__many"
-                        id="mtnNumber">(3)</span></h1>
+                        id="mtnNumber"></span></h1>
 
                 <div class="maintenance__search-container">
                     <div class="maintenance__search">
@@ -52,7 +52,7 @@
                                 <th class="maintenance__bold-column">Fecha</th>
                             </tr>
                         </thead>
-                        <tbody class="maintenance__body">
+                        <tbody class="maintenance__body" id="tableBody">
                             <tr class="maintenance__row">
                                 <td class="maintenance__column">Mantenimiento preventivo computadora</td>
                                 <td class="maintenance__column">Computadora</td>
@@ -123,20 +123,17 @@
                 </div>
                 <div class="overlay__frecuenci">
                     <label for="overlay__frecuencia">Fecha</label>
-                    <input type="date" name="" class="overlay__frecuencia" id="">
+                    <input type="date" name="" class="overlay__frecuencia" id="fecha">
                 </div>
             </div>
             <div class="overlay__actividade">
                 <label for="overlay__actividades">Actividades</label>
-                <textarea class="overlay__actividades"></textarea>
+                <textarea class="overlay__actividades" id="actividades"></textarea>
             </div>
             <div class="overlay__equip">
                 <label for="overlay__equipo">Equipo</label>
-                <select class="overlay__equipo">
-                    <option>Seleccionar</option>
-                    <option>Computadora</option>
-                    <option>Televisor</option>
-                    <option>Grua</option>
+                <select class="overlay__equipo" id="equipo">
+                    <option value="0">Seleccionar</option>
                 </select>
             </div>
             <div class="overlay__submit-container">
@@ -147,7 +144,10 @@
         </form>
     </div>
 
-    <script src="js/renderer/index.js"></script>
+    <script>
+        require('./js/renderer/index.js');
+        require('./js/renderer/funcionesFecha.js');
+    </script>
 </body>
 
 </html>

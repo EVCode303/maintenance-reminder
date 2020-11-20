@@ -38,102 +38,117 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
 var Database_1 = require("../main/Database");
-var dismiss = document.querySelector('#dismiss'), submit = document.querySelector('#submit'), overlay = document.querySelector('#overlay'), overlayBtn = document.querySelector('#btnFloat'), tableBody = document.querySelector("#tableBody"), search = document.querySelector("#search"), machinesNumber = document.querySelector("#mchNumber");
+var dismiss = document.querySelector('#dismiss'), submit = document.querySelector('#submit'), overlay = document.querySelector('#overlay'), overlayBtn = document.querySelector('#btnFloat');
 dismiss.addEventListener('click', function (e) {
     e.preventDefault();
     dismiss.style.display = 'none';
     overlay.style.display = 'none';
 });
 overlayBtn.addEventListener('click', function (e) {
-    e.preventDefault();
     dismiss.style.display = 'block';
     overlay.style.display = 'block';
-    maquinaria.focus();
 });
-/*  Form Events  */
-var modelo = document.querySelector("#modelo"), maquinaria = document.querySelector("#maquina"), descripcion = document.querySelector("#descripcion"), formSubmit = document.querySelector("#submit-form");
-var sendInfo = function () {
-    var mModelo = modelo.value;
-    var mMaquinaria = maquinaria.value;
-    var mDescripcion = descripcion.value;
-    var machine = {
-        modelo: mModelo,
-        maquinaria: mMaquinaria,
-        descripcion: mDescripcion
-    };
-    electron_1.ipcRenderer.send('create-machine', machine);
-};
-submit.addEventListener('click', function (e) {
-    e.preventDefault();
-    sendInfo();
+submit.addEventListener('click', function () {
     dismiss.style.display = 'none';
     overlay.style.display = 'none';
-    maquinaria.value = '';
-    modelo.value = '';
-    descripcion.value = '';
 });
-electron_1.ipcRenderer.on('reload', function (e) {
-    showMachines();
-    printMachineNumber();
-});
-var renderMachine = function (machine) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        tableBody.innerHTML += "\n    <tr class=\"maintenance__row\">\n        <td class=\"maintenance__column\">" + machine.nombre + "</td>\n        <td class=\"maintenance__column\">" + machine.modelo + "</td>\n        <td class=\"maintenance__column\">" + machine.descripcion + "</td>\n        <td class=\"maintenance__column\">" + machine.fecha + "</td>\n    </tr>\n    ";
-        return [2 /*return*/];
-    });
-}); };
-var showMachines = function () { return __awaiter(void 0, void 0, void 0, function () {
+/* form actions  */
+var equipo = document.querySelector('#equipo'), mantenimiento = document.querySelector('#mantenimiento'), fecha = document.querySelector('#fecha'), actividades = document.querySelector('#actividades'), tableBody = document.querySelector('#tableBody'), maintenanceCount = document.querySelector('#mtnNumber'), search = document.querySelector('#search');
+var fillCbx = function (machine, index) {
+    equipo.innerHTML += "\n        <option value=" + machine.nombre + ">" + machine.nombre + "</option>\n    ";
+};
+var fillCbxEquipo = function () { return __awaiter(void 0, void 0, void 0, function () {
     var result, machines;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                tableBody.innerHTML = '';
-                return [4 /*yield*/, Database_1.loadMachines()];
+            case 0: return [4 /*yield*/, Database_1.loadMachinesIntoCbx()];
             case 1:
                 result = _a.sent();
                 machines = result[0];
                 machines.forEach(function (machine) {
-                    renderMachine(machine);
+                    fillCbx(machine);
                 });
                 return [2 /*return*/];
         }
     });
 }); };
-var showMachinesFound = function (result) {
-    tableBody.innerHTML = '';
-    result.forEach(function (machine) {
-        renderMachine(machine);
+submit.addEventListener('click', function (e) {
+    var mant = mantenimiento.value;
+    var fech = fecha.value;
+    var activ = actividades.value;
+    var equip = equipo.value;
+    var maintenance = {
+        mantenimiento: mant,
+        fecha: fech,
+        actividades: activ,
+        equipo: equip
+    };
+    console.log(maintenance);
+    electron_1.ipcRenderer.send('create-maintenance', maintenance);
+});
+var renderMaintenance = function (maintenance) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        tableBody.innerHTML += "\n    <tr class=\"maintenance__row\">\n        <td class=\"maintenance__column\">" + maintenance.mantenimiento + "</td>\n        <td class=\"maintenance__column\">" + maintenance.equipo + "</td>\n        <td class=\"maintenance__column\">" + maintenance.actividades + "</td>\n        <td class=\"maintenance__column\">" + maintenance.fecha + "</td>\n    </tr>\n    ";
+        return [2 /*return*/];
     });
-};
-var printMachineNumber = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var result, aux, machineNumber;
+}); };
+var showMaintenance = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result, maintenances;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Database_1.getMachinesCount()];
+            case 0:
+                tableBody.innerHTML = '';
+                return [4 /*yield*/, Database_1.loadMaintenance()];
             case 1:
                 result = _a.sent();
-                aux = result[0];
-                machineNumber = aux[0];
-                machinesNumber.innerHTML = " (" + machineNumber.cantidadEquipos + ")";
+                maintenances = result[0];
+                maintenances.forEach(function (maintenance) {
+                    renderMaintenance(maintenance);
+                });
                 return [2 /*return*/];
         }
     });
 }); };
+var printMaintenanceNumber = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result, aux, maintenanceNumber;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, Database_1.getMaintenanceCount()];
+            case 1:
+                result = _a.sent();
+                aux = result[0];
+                maintenanceNumber = aux[0];
+                maintenanceCount.innerHTML = " (" + maintenanceNumber.registros + ")";
+                return [2 /*return*/];
+        }
+    });
+}); };
+electron_1.ipcRenderer.on('reload', function (e) {
+    showMaintenance();
+    printMaintenanceNumber();
+});
+var showMaintenancesFound = function (result) {
+    tableBody.innerHTML = '';
+    result.forEach(function (maintenance) {
+        renderMaintenance(maintenance);
+    });
+};
 search.addEventListener('keyup', function (e) { return __awaiter(void 0, void 0, void 0, function () {
-    var machineName, result, machines;
+    var maintenance, result, maintenances;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                machineName = search.value;
-                return [4 /*yield*/, Database_1.findMachinesByName(machineName)];
+                maintenance = search.value;
+                return [4 /*yield*/, Database_1.findMaintenanceByName(maintenance)];
             case 1:
                 result = _a.sent();
-                machines = result[0];
-                console.log(machines);
-                showMachinesFound(machines);
+                maintenances = result[0];
+                console.log(maintenances);
+                showMaintenancesFound(maintenances);
                 return [2 /*return*/];
         }
     });
 }); });
-showMachines();
-printMachineNumber();
+showMaintenance();
+printMaintenanceNumber();
+fillCbxEquipo();

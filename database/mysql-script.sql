@@ -9,21 +9,14 @@ create table Equipo(
     descripcion varchar(1000)
 );
 
-create table Mantenimiento_prioridad(
-	id int primary key auto_increment,
-    nombre varchar(10)
-);
-
 create table Mantenimiento(
 	id int primary key auto_increment,
     nombre varchar(100) not null,
-    fecha datetime not null,
+    fecha date not null,
     actividades varchar(1500) not null,
     id_equipo int,
-    id_prioridad int,
     estado int,
-    foreign key (id_equipo) references Equipo(id),
-    foreign key (id_prioridad) references Mantenimiento_prioridad(id)
+    foreign key (id_equipo) references Equipo(id)
 );
 
 drop procedure sp_getEquipos;
@@ -34,6 +27,11 @@ create procedure sp_getEquipos ()
 begin
 select nombre from Equipo order by id desc;
 End;
+
+DELIMITER //
+
+create procedure sp_getEquiposAll ()
+select * from Equipo order by id desc
 
 DELIMITER //
 create procedure sp_updateStateMantenimiento (NewEstado int, spid int)
@@ -79,7 +77,7 @@ END;
 DELIMITER //
 create procedure sp_getEquipoLike(nombreSp varchar(100))
 begin
-select * from Equipo where nombre like nombreSp order by id desc;
+select * from Equipo where nombre like '%'+nombreSp+'%' order by id desc;
 END;
 
 DELIMITER //

@@ -1,10 +1,11 @@
 import electron from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import { Database } from './database';
-const {app, BrowserWindow} = electron;
+import { insertMachine, insertMaintenance } from './Database';
+import { verifyPending } from './funcionesFecha';
+const { app, BrowserWindow, ipcMain } = electron;
 let mainWindow, mainWindowPosition;
 
-const createWindow = ():any => {
+const createWindow = (): any => {
     mainWindowPosition = windowStateKeeper({
         defaultWidth: 1150,
         defaultHeight: 750
@@ -27,8 +28,25 @@ const createWindow = ():any => {
 
     mainWindowPosition.manage(mainWindow);
     mainWindow.loadFile('src/index.html');
-    mainWindow.setMenu(null);
+    //mainWindow.setMenu(null);
     mainWindow.once('ready-to-show', mainWindow.show);
 };
 
 app.once('ready', createWindow);
+
+/*  IPC    */
+
+ipcMain.on('create-machine', async (e, machine) => {
+    const result = await insertMachine(machine);
+    mainWindow.webContents.send('reload');
+});
+
+ipcMain.on('create-maintenance', async (e, maintenance) => {
+    const result = await insertMaintenance(maintenance);
+    mainWindow.webContents.send('reload');
+});
+
+ipcMain.on('dates', (e, dates, ids) => {
+    verifyPending(dates, ids);
+    mainWindow.webContents.send('reload');
+});

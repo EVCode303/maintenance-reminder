@@ -35,67 +35,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var electron_1 = __importDefault(require("electron"));
-var electron_window_state_1 = __importDefault(require("electron-window-state"));
-var Database_1 = require("./Database");
-var funcionesFecha_1 = require("./funcionesFecha");
-var app = electron_1.default.app, BrowserWindow = electron_1.default.BrowserWindow, ipcMain = electron_1.default.ipcMain;
-var mainWindow, mainWindowPosition;
-var createWindow = function () {
-    mainWindowPosition = electron_window_state_1.default({
-        defaultWidth: 1150,
-        defaultHeight: 750
+var Database_1 = require("../main/Database");
+/* form actions  */
+var equipo = document.querySelector('#equipo'), tableBody = document.querySelector('#tableBody'), historialCount = document.querySelector('#hNumber'), search = document.querySelector('#search');
+var renderHistorial = function (historial) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        tableBody.innerHTML += "\n    <tr class=\"maintenance__row\">\n        <td class=\"maintenance__column\">" + historial.mantenimiento + "</td>\n        <td class=\"maintenance__column\">" + historial.equipo + "</td>\n        <td class=\"maintenance__column\">" + historial.actividades + "</td>\n        <td class=\"maintenance__column\">" + historial.fecha + "</td>\n    </tr>\n    ";
+        return [2 /*return*/];
     });
-    mainWindow = new BrowserWindow({
-        width: mainWindowPosition.width,
-        height: mainWindowPosition.height,
-        x: mainWindowPosition.x,
-        y: mainWindowPosition.y,
-        minWidth: 800,
-        minHeight: 600,
-        maxWidth: 1250,
-        maxHeight: 900,
-        show: false,
-        webPreferences: {
-            nodeIntegration: true
-        }
-    });
-    mainWindowPosition.manage(mainWindow);
-    mainWindow.loadFile('src/index.html');
-    //mainWindow.setMenu(null);
-    mainWindow.once('ready-to-show', mainWindow.show);
-};
-app.once('ready', createWindow);
-/*  IPC    */
-ipcMain.on('create-machine', function (e, machine) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
+}); };
+var showHistorial = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result, historial;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Database_1.insertMachine(machine)];
+            case 0:
+                tableBody.innerHTML = '';
+                return [4 /*yield*/, Database_1.loadHistorial()];
             case 1:
                 result = _a.sent();
-                mainWindow.webContents.send('reload');
+                historial = result[0];
+                historial.forEach(function (historia) {
+                    renderHistorial(historia);
+                });
                 return [2 /*return*/];
         }
     });
-}); });
-ipcMain.on('create-maintenance', function (e, maintenance) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
+}); };
+var printHistorialNumber = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var result, aux, maintenanceNumber;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, Database_1.insertMaintenance(maintenance)];
+            case 0: return [4 /*yield*/, Database_1.getHistorialCount()];
             case 1:
                 result = _a.sent();
-                mainWindow.webContents.send('reload');
+                aux = result[0];
+                maintenanceNumber = aux[0];
+                historialCount.innerHTML = " (" + maintenanceNumber.registros + ")";
                 return [2 /*return*/];
         }
     });
-}); });
-ipcMain.on('dates', function (e, dates, ids) {
-    funcionesFecha_1.verifyPending(dates, ids);
-    mainWindow.webContents.send('reload');
-});
+}); };
+showHistorial();
+printHistorialNumber();

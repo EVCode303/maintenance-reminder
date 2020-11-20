@@ -43,49 +43,13 @@
                     <table class="maintenance__table">
                         <thead class="maintenance__head">
                             <tr class="maintenance__row">
-                                <th class="maintenance__bold-column">Código</th>
-                                <th class="maintenance__bold-column">Máquina</th>
+                                <th class="maintenance__bold-column">Maquina</th>
+                                <th class="maintenance__bold-column">Modelo</th>
                                 <th class="maintenance__bold-column">Descripción</th>
                                 <th class="maintenance__bold-column">Fecha Ingresada</th>
                             </tr>
                         </thead>
-                        <tbody class="maintenance__body">
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
-                            <tr class="maintenance__row">
-                                <td class="maintenance__column">0001</td>
-                                <td class="maintenance__column">Computadora Laptop Dell Inspiron</td>
-                                <td class="maintenance__column">Pequeña descripción del articulo computadora</td>
-                                <td class="maintenance__column">18/11/2020</td>
-                            </tr>
+                        <tbody class="maintenance__body" id="tableBody">
                         </tbody>
                     </table>
                 </div>
@@ -94,30 +58,32 @@
         </main>
     </div>
     <div class="overlay" id="overlay">
-        <form class="overlay__form" action="#">
+        <form class="overlay__form" action="#" id="submit-form" >
             <div class="overlay__both">
                 <div class="overlay__mantenimient">
-                    <label for="mantenimiento">Código</label>
-                    <input type="text" class="overlay__mantenimiento" id="codigo">
+                    <label for="mantenimiento">Maquinaria</label>
+                    <input type="text" class="overlay__mantenimiento" id="maquina">
                 </div>
                 <div class="overlay__frecuenci">
-                    <label for="overlay__frecuencia">Maquinaria</label>
-                    <input type="text" class="overlay__mantenimiento" id="maquina">
+                    <label for="overlay__frecuencia">Modelo</label>
+                    <input type="text" class="overlay__mantenimiento" id="modelo">
                 </div>
             </div>
             <div class="overlay__actividade">
                 <label for="overlay__actividades">Descripción</label>
-                <textarea class="overlay__actividades"></textarea>
+                <textarea class="overlay__actividades" id="descripcion"></textarea>
             </div>
             <div class="overlay__submit-container">
-                <button type="button" id="submit" class="overlay__submit">
+                <button type="button" class="overlay__submit" id="submit">
                     Registrar
                 </button>
             </div>
         </form>
     </div>
 
-    <script src="js/renderer/maquinaria.js"></script>
+    <script>
+        require('./js/renderer/maquinaria.js');
+    </script>
 
 </body>
 
