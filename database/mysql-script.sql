@@ -17,7 +17,7 @@ create table Mantenimiento_prioridad(
 create table Mantenimiento(
 	id int primary key auto_increment,
     nombre varchar(100) not null,
-    fecha datetime not null,
+    fecha datetime default current_timestamp,
     actividades varchar(1500) not null,
     id_equipo int,
     id_prioridad int,
@@ -26,6 +26,7 @@ create table Mantenimiento(
     foreign key (id_prioridad) references Mantenimiento_prioridad(id)
 );
 
+drop table Mantenimiento;
 drop procedure sp_getEquipos;
 
 DELIMITER //
@@ -45,6 +46,16 @@ DELIMITER //
 create procedure sp_getMantenimientoWithState(state int)
 begin
 select * from Mantenimiento where estado = state order by fecha desc;
+End;
+
+DELIMITER //
+create procedure sp_saveEquipo(nombreEquipo varchar(100), 
+modelo varchar(10),
+nombre varchar(100),
+descripcion varchar(1000)
+)
+begin
+Insert into Equipo values(NULL, modelo, nombreEquipo, descripcion);
 End;
 
 DELIMITER //
